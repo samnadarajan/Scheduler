@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DutyListComponent} from './component/duty-list.component';
 
 @Component({
   selector: 'app-scheduler',
