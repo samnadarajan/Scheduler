@@ -5,10 +5,22 @@ import {Duty} from "../class/Duty";
 @Component({
   selector: "duties",
   template: `
-    <h5>{{title}}</h5>
+    <h5 class="center-align">{{title}}</h5>
     <div *ngFor="let duty of dutyList">
-        <span>{{duty.name}}</span>
-        <p>Occurs on {{duty.dutyDate}}</p>
+      <div class="row center-align">
+          <div class="col s12">
+            <div class="card light-grey darken-1">
+              <div class="card-content black-text">
+                <span class="card-title">{{duty.name}}</span>
+                <span class="left-align">Due Date</span><p>{{duty.dutyDate}}</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Delete</a>
+                <a href="#">Switch</a>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   `
 })

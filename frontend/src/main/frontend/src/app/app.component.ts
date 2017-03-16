@@ -7,5 +7,5 @@ import {DutyListComponent} from './component/duty-list.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Hello World';
+  title = 'Schedules';
 }
