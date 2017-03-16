@@ -4,29 +4,19 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by sam on 3/6/17.
+ * Created by sam on 3/14/17.
  */
 @Entity
-@Table(name = "DUTY")
-public class DutyEntity {
-    private String dutyCode;
+@Table(name = "SECTION")
+public class SectionEntity {
     private String sectionCode;
-    private String dutyName;
+    private String sectionName;
     private Date beginDate;
     private Date endDate;
     private Date createdOn;
     private String createdBy;
 
     @Id
-    @Column(name = "DUTY_CODE")
-    public String getDutyCode() {
-        return dutyCode;
-    }
-
-    public void setDutyCode(String dutyCode) {
-        this.dutyCode = dutyCode;
-    }
-
     @Column(name = "SECTION_CODE")
     public String getSectionCode() {
         return sectionCode;
@@ -36,13 +26,13 @@ public class DutyEntity {
         this.sectionCode = sectionCode;
     }
 
-    @Column(name = "DUTY_NAME")
-    public String getDutyName() {
-        return dutyName;
+    @Column(name = "SECTION_NAME")
+    public String getSectionName() {
+        return sectionName;
     }
 
-    public void setDutyName(String dutyName) {
-        this.dutyName = dutyName;
+    public void setSectionName(String sectionName) {
+        this.sectionName = sectionName;
     }
 
     @Column(name = "BEGIN_DATE")
