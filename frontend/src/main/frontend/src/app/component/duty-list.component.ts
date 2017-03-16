@@ -11,8 +11,8 @@ import {Duty} from "../class/Duty";
           <div class="col s12">
             <div class="card light-grey darken-1">
               <div class="card-content black-text">
-                <span class="card-title">{{duty.name}}</span>
-                <span class="left-align">Due Date</span><p>{{duty.dutyDate}}</p>
+                <span class="card-title">{{duty.dutyName}}</span>
+                <span class="left-align">Due Date</span><p>{{duty.beginDate}}</p>
               </div>
               <div class="card-action">
                 <a href="#">Delete</a>
@@ -33,7 +33,7 @@ export class DutyListComponent implements OnInit {
   dutyList: Duty[];
 
   getAllDuties(): void {
-    this.dutyService.getAllDuties().then(duties => this.dutyList = duties);
+    this.dutyService.getAllDuties().then(dutyList => this.dutyList = dutyList);
   }
 
   ngOnInit(): void {
