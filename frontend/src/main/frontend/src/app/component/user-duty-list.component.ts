@@ -11,7 +11,7 @@ import {UserProfileDuty} from "../class/UserProfileDuty";
           <div class="col s12">
             <div class="card light-grey darken-1">
               <div class="card-content black-text">
-                <span class="card-title">{{duty.dutyCode}}</span>
+                <span class="card-title">{{duty.dutyCode | lookupNameByCode:this.dutyMap}}</span>
                 <span class="left-align">Due Date</span><p>{{duty.dutyDate | date}}</p>
               </div>
               <div class="card-action">
@@ -38,7 +38,6 @@ export class UserDutyListComponent implements OnInit {
       .subscribe(response => {
         this.userDutyList = response.userDutyList;
         this.dutyMap = response.dutyMap;
-        console.log(this.dutyMap);
       });
 
 
