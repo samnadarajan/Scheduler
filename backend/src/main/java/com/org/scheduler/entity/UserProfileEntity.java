@@ -1,14 +1,13 @@
 package com.org.scheduler.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by sam on 3/14/17.
  */
+@Entity
+@Table(name = "USER_PROFILE")
 public class UserProfileEntity {
     private Long userProfileId;
     private String firstName;
