@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { DutyListComponent } from './component/duty-list.component';
+import {UserDutyListComponent} from './component/user-duty-list.component';
 import {DutyService} from "./service/duty.service";
+import {LookupNameByCodePipe} from "./pipe/lookupNameByCode.pipe";
 
 @NgModule({
   declarations: [
-    AppComponent, DutyListComponent
+    AppComponent, UserDutyListComponent, LookupNameByCodePipe
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,17 @@
 import {Injectable} from "@angular/core";
-import {Duty} from "app/class/Duty";
-import {Http, Headers} from "@angular/http";
+import {UserProfileDuty} from "app/class/UserProfileDuty";
+import {Http, Headers, Response} from "@angular/http";
 import "rxjs/add/operator/toPromise";
+import 'rxjs/Rx';
+import {Observable} from "rxjs";
 
 @Injectable()
 export class DutyService {
   constructor(private http: Http) {}
+  response
 
-  getAllDuties(): Promise<Duty[]> {
-    return this.http.get("scheduler/duty/list").toPromise().then(response => response.json() as Duty[]).catch(this.handleError);
+  getUserDuties(): Observable<any> {
+    return this.http.get("scheduler/userprofileduty/list").map(response => response.json());
   }
 
   handleError(error: any): Promise<any> {
