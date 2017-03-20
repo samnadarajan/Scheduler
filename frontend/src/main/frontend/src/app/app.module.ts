@@ -7,15 +7,18 @@ import { AppComponent } from './app.component';
 import {UserDutyListComponent} from './component/user-duty-list.component';
 import {DutyService} from "./service/duty.service";
 import {LookupNameByCodePipe} from "./pipe/lookupNameByCode.pipe";
+import {UserComponent} from "./component/user.component";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
-    AppComponent, UserDutyListComponent, LookupNameByCodePipe
+    AppComponent, UserDutyListComponent, LookupNameByCodePipe, UserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [DutyService],
   bootstrap: [AppComponent]

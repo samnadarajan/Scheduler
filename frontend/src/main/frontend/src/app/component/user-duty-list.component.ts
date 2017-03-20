@@ -12,7 +12,7 @@ import {UserProfileDuty} from "../class/UserProfileDuty";
             <div class="card light-grey darken-1">
               <div class="card-content black-text">
                 <span class="card-title">{{duty.dutyCode | lookupNameByCode:this.dutyMap}}</span>
-                <span class="left-align">Due Date</span><p>{{duty.dutyDate | date}}</p>
+                <span class="left-align">Due Date <p>{{duty.dutyDate | date}}</p></span>
               </div>
               <div class="card-action">
                 <a href="#">Delete</a>

@@ -8,7 +8,6 @@ import {Observable} from "rxjs";
 @Injectable()
 export class DutyService {
   constructor(private http: Http) {}
-  response
 
   getUserDuties(): Observable<any> {
     return this.http.get("scheduler/userprofileduty/list").map(response => response.json());
