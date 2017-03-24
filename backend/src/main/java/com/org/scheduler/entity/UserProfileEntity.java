@@ -13,7 +13,7 @@ public class UserProfileEntity {
     private String firstName;
     private String lastName;
     private String email;
-    private Number phone;
+    private Long phone;
     private Date createdOn;
     private String createdBy;
 
@@ -55,11 +55,11 @@ public class UserProfileEntity {
     }
 
     @Column(name = "PHONE")
-    public Number getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Number phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

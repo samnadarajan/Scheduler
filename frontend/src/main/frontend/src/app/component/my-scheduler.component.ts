@@ -18,6 +18,6 @@ import {UserDutyListComponent} from "app/component/user-duty-list.component";
   <router-outlet></router-outlet>
   `
 })
-export class UserComponent {
+export class MySchedulerComponent {
 
 }

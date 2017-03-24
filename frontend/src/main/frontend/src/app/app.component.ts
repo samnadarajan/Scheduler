@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserComponent} from './component/user.component';
+import {MySchedulerComponent} from './component/my-scheduler.component';
 
 @Component({
   selector: 'app-scheduler',
@@ -8,8 +8,8 @@ import {UserComponent} from './component/user.component';
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">Scheduler</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a routerLink="sass.html">Admin</a></li>
-          <li><a routerLink="/user">User</a></li>
+          <li><a routerLink="/admin">Admin</a></li>
+          <li><a routerLink="/myscheduler">User</a></li>
         </ul>
       </div>
     </nav>

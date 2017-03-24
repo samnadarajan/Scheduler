@@ -5,14 +5,17 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {UserDutyListComponent} from './component/user-duty-list.component';
-import {DutyService} from "./service/duty.service";
 import {LookupNameByCodePipe} from "./pipe/lookupNameByCode.pipe";
-import {UserComponent} from "./component/user.component";
+import {MySchedulerComponent} from "./component/my-scheduler.component";
 import {AppRoutingModule} from "./app-routing.module";
+import {AdminComponent} from "./component/admin.component";
+import {RestDataService} from "./service/rest-data.service";
+import {UserListComponent} from "./component/user-list.component";
+import {UserDetailComponent} from "./component/user-detail.component";
 
 @NgModule({
   declarations: [
-    AppComponent, UserDutyListComponent, LookupNameByCodePipe, UserComponent
+    AppComponent, UserDutyListComponent, LookupNameByCodePipe, MySchedulerComponent, AdminComponent, UserListComponent, UserDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import {AppRoutingModule} from "./app-routing.module";
     HttpModule,
     AppRoutingModule
   ],
-  providers: [DutyService],
+  providers: [RestDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

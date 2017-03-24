@@ -1,18 +1,18 @@
 import {Component, OnInit} from "@angular/core";
-import {DutyService} from "app/service/duty.service";
+import {RestDataService} from "../service/rest-data.service";
 import {UserProfileDuty} from "../class/UserProfileDuty";
 
 @Component({
   selector: "user-duty-list",
   template: `
     <h5 class="center-align">{{title}}</h5>
-    <div *ngFor="let duty of userDutyList">
+    <div *ngFor="let userDuty of userDutyList">
       <div class="row center-align">
           <div class="col s12">
             <div class="card light-grey darken-1">
               <div class="card-content black-text">
-                <span class="card-title">{{duty.dutyCode | lookupNameByCode:this.dutyMap}}</span>
-                <span class="left-align">Due Date <p>{{duty.dutyDate | date}}</p></span>
+                <span class="card-title">{{userDuty.dutyCode | lookupNameByCode:this.dutyMap}}</span>
+                <span class="left-align">Due Date <p>{{userDuty.dutyDate | date}}</p></span>
               </div>
               <div class="card-action">
                 <a href="#">Delete</a>
@@ -26,7 +26,7 @@ import {UserProfileDuty} from "../class/UserProfileDuty";
 })
 export class UserDutyListComponent implements OnInit {
   constructor(
-    private dutyService: DutyService
+    private restDataService: RestDataService
   ){}
 
   title = "My Duties";
@@ -34,7 +34,7 @@ export class UserDutyListComponent implements OnInit {
   dutyMap: Map<String, String>;
 
   getAllDuties(): void {
-    this.dutyService.getUserDuties()
+    this.restDataService.getData("/userprofileduty/list")
       .subscribe(response => {
         this.userDutyList = response.userDutyList;
         this.dutyMap = response.dutyMap;
