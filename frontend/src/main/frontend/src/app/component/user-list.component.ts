@@ -22,14 +22,14 @@ import {UserFormComponent} from "./user-form.component";
               </thead>
               <tbody *ngFor="let user of users; let i = index">
                 <tr>
-                  <td>{{user.firstName}} {{i}}</td>
+                  <td>{{user.firstName}}</td>
                   <td>{{user.lastName}}</td>
                   <td>{{user.phone}}</td>
                   <td>{{user.email}}</td>
                   <td><i class="material-icons">mode_edit</i></td>
-                  <td><i class="fa fa-american-sign-language-interpreting" aria-hidden="true"></i></td>
+                  <td (click)="expandCollapseUser(i)"><i class="fa" [ngClass]="{'fa-chevron-down': !user.expanded, 'fa-chevron-up': user.expanded}" aria-hidden="true"></i></td>
                 </tr>
-                <tr><td colspan="6"><p>Hello</p>, <span>My name is {{user.firstName}}</span></td></tr>
+                <tr [hidden]="!user.expanded"><td colspan="6"><p>Hello</p>, <span>My name is {{user.firstName}}</span></td></tr>
               </tbody>
             </table>
         </div>
@@ -48,7 +48,17 @@ export class UserListComponent implements OnInit {
 
   getAllUsers(): void {
     this.restDataService.getData("/user/list")
-      .subscribe(response => this.users = response.users as IUser[]);
+      .subscribe(response => {
+        this.users = response.users as IUser[];
+        for (var i = 0; i < this.users.length; i++) {
+          this.users[i].expanded = false;
+        }
+      });
+
+  }
+
+  expandCollapseUser(i: number) {
+    this.users[i].expanded = !this.users[i].expanded
   }
 
   ngOnInit() : void {
