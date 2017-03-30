@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "SECTION")
-public class SectionEntity {
+public class SectionEntity extends AbstractEntity {
     private String sectionCode;
     private String sectionName;
     private Date beginDate;

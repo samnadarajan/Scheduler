@@ -12,10 +12,14 @@ import {AdminComponent} from "./component/admin.component";
 import {RestDataService} from "./service/rest-data.service";
 import {UserListComponent} from "./component/user-list.component";
 import {UserDetailComponent} from "./component/user-detail.component";
+import {NavigationComponent} from "./component/navigation.component";
+import {UserFormComponent} from "./component/user-form.component";
+import {LoginComponent} from "./component/login.component";
 
 @NgModule({
   declarations: [
-    AppComponent, UserDutyListComponent, LookupNameByCodePipe, MySchedulerComponent, AdminComponent, UserListComponent, UserDetailComponent
+    AppComponent, UserDutyListComponent, LookupNameByCodePipe, MySchedulerComponent, AdminComponent, UserListComponent, UserDetailComponent,
+    NavigationComponent, UserFormComponent, LoginComponent
   ],
   imports: [
     BrowserModule,

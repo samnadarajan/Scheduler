@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {RestDataService} from "../service/rest-data.service";
-import {UserProfileDuty} from "../class/UserProfileDuty";
+import {IUserProfileDuty} from "../class/IUserProfileDuty.model";
 
 @Component({
   selector: "user-duty-list",
@@ -11,8 +11,8 @@ import {UserProfileDuty} from "../class/UserProfileDuty";
           <div class="col s12">
             <div class="card light-grey darken-1">
               <div class="card-content black-text">
-                <span class="card-title">{{userDuty.dutyCode | lookupNameByCode:this.dutyMap}}</span>
-                <span class="left-align">Due Date <p>{{userDuty.dutyDate | date}}</p></span>
+                <span class="card-title">{{userDuty?.dutyCode | lookupNameByCode:this.dutyMap}}</span>
+                <span class="left-align">Due Date <p>{{userDuty?.dutyDate | date}}</p></span>
               </div>
               <div class="card-action">
                 <a href="#">Delete</a>
@@ -30,14 +30,14 @@ export class UserDutyListComponent implements OnInit {
   ){}
 
   title = "My Duties";
-  userDutyList: UserProfileDuty[];
+  userDutyList: IUserProfileDuty[];
   dutyMap: Map<String, String>;
 
   getAllDuties(): void {
     this.restDataService.getData("/userprofileduty/list")
       .subscribe(response => {
-        this.userDutyList = response.userDutyList;
-        this.dutyMap = response.dutyMap;
+        this.userDutyList = response.userDutyList as IUserProfileDuty[];
+        this.dutyMap = response.dutyMap as Map<String, String>;
       });
 
 

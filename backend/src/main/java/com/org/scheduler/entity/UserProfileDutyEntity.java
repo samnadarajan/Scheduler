@@ -11,7 +11,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "USER_PROFILE_DUTY")
-public class UserProfileDutyEntity {
+public class UserProfileDutyEntity extends AbstractEntity {
     private Long userProfileDutyId;
     private String dutyCode;
     private Long userProfileId;

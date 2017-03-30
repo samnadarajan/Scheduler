@@ -1,6 +1,4 @@
-export class Duty {
+export interface IDuty {
   dutyCode: string;
   dutyName: string;
-  beginDate: Date;
-  endDate: Date;
 }

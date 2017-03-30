@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "DUTY")
-public class DutyEntity {
+public class DutyEntity extends AbstractEntity {
     private String dutyCode;
     private String sectionCode;
     private String dutyName;

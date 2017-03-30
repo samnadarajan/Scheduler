@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "USER_PROFILE")
-public class UserProfileEntity {
+public class UserProfileEntity extends AbstractEntity {
     private Long userProfileId;
     private String firstName;
     private String lastName;
@@ -18,6 +18,8 @@ public class UserProfileEntity {
     private String createdBy;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_USER_PROFILE_ID")
+    @SequenceGenerator(name = "S_USER_PROFILE_ID", sequenceName = "S_USER_PROFILE_ID", allocationSize = 1)
     @Column(name = "USER_PROFILE_ID")
     public Long getUserProfileId() {
         return userProfileId;

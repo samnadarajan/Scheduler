@@ -1,6 +1,7 @@
 package com.org.scheduler.controller;
 
 import com.google.gson.Gson;
+import com.org.scheduler.entity.UserProfileDutyEntity;
 import com.org.scheduler.entity.UserProfileEntity;
 import com.org.scheduler.repository.DutyRepository;
 import com.org.scheduler.repository.UserProfileDutyRepository;
@@ -22,6 +23,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("userprofileduty")
 public class UserProfileDutyController extends AbstractRestController {
+    public UserProfileDutyController() {
+        super(UserProfileDutyEntity.class);
+    }
 
     @Autowired
     UserProfileRepository userProfileRepository;
