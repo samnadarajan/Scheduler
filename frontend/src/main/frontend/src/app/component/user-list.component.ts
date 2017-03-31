@@ -21,7 +21,7 @@ import {UserFormComponent} from "./user-form.component";
                 </tr>
               </thead>
               <tbody *ngFor="let user of users; let i = index">
-                <tr>
+                <tr [ngClass]="{'row-expanded-top':user.expanded}">
                   <td>{{user.firstName}}</td>
                   <td>{{user.lastName}}</td>
                   <td>{{user.phone}}</td>
@@ -29,7 +29,7 @@ import {UserFormComponent} from "./user-form.component";
                   <td><i class="material-icons">mode_edit</i></td>
                   <td (click)="expandCollapseUser(i)"><i class="fa" [ngClass]="{'fa-chevron-down': !user.expanded, 'fa-chevron-up': user.expanded}" aria-hidden="true"></i></td>
                 </tr>
-                <tr [hidden]="!user.expanded"><td colspan="6"><p>Hello</p>, <span>My name is {{user.firstName}}</span></td></tr>
+                <tr [hidden]="!user.expanded" [ngClass]="{'row-expanded-bottom':user.expanded}"><td colspan="6"><p>Hello</p>, <span>My name is {{user.firstName}}</span></td></tr>
               </tbody>
             </table>
         </div>
@@ -40,7 +40,8 @@ import {UserFormComponent} from "./user-form.component";
              </a>
         </div>
      </div>
-  `
+  `,
+  styleUrls: ["./user-list.component.css"]
 })
 export class UserListComponent implements OnInit {
   constructor(private restDataService: RestDataService) {}
