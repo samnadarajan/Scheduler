@@ -6,5 +6,6 @@ export interface IUser {
   phone: string;
   createdOn: Date;
   createdBy: string;
+  notes: string;
   expanded:boolean;
 }

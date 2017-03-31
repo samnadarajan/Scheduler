@@ -16,6 +16,7 @@ public class UserProfileEntity extends AbstractEntity {
     private Long phone;
     private Date createdOn;
     private String createdBy;
+    private String notes;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_USER_PROFILE_ID")
@@ -82,5 +83,14 @@ public class UserProfileEntity extends AbstractEntity {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
+    }
+
+    @Column(name = "NOTES")
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }
