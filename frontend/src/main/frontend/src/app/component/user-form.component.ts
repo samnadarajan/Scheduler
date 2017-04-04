@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Output, EventEmitter} from "@angular/core";
 import {RestDataService} from "../service/rest-data.service";
 
 @Component({
@@ -7,17 +7,14 @@ import {RestDataService} from "../service/rest-data.service";
 })
 export class UserFormComponent {
   constructor(private restDataService: RestDataService) {}
-  showUserForm: boolean = false;
+  @Output() saveNewUser = new EventEmitter();
+  @Output() cancelNewUser = new EventEmitter();
 
-  addUser() {
-    this.showUserForm = true;
+  saveUser(formValues) {
+    this.saveNewUser.emit(formValues);
   }
 
   cancel() {
-    this.showUserForm = false;
-  }
-
-  saveUser(formValues) {
-    this.restDataService.postData("/user/save", formValues).subscribe(response => console.log(response));
+    this.cancelNewUser.emit();
   }
 }

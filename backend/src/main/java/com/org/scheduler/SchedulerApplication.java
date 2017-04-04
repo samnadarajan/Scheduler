@@ -1,4 +1,4 @@
-package com.org;
+package com.org.scheduler;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

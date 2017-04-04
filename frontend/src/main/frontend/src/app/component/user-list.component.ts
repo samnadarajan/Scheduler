@@ -12,6 +12,7 @@ import {UserFormComponent} from "./user-form.component";
 export class UserListComponent implements OnInit {
   constructor(private restDataService: RestDataService) {}
   users: IUser[];
+  showUserForm: boolean = false;
 
   getAllUsers(): void {
     this.restDataService.getData("/user/list")
@@ -26,6 +27,22 @@ export class UserListComponent implements OnInit {
 
   expandCollapseUser(i: number) {
     this.users[i].expanded = !this.users[i].expanded
+  }
+
+  addUser() {
+    this.showUserForm = true;
+  }
+
+  saveNewUser(user:IUser) {
+    this.restDataService.postData("/user/save", user)
+      .subscribe(response => {
+        this.users.unshift(response.user);
+        this.showUserForm = false;
+      });
+  }
+
+  cancelNewUser() {
+    this.showUserForm = false;
   }
 
   ngOnInit() : void {

@@ -1,0 +1,29 @@
+<div *ngIf="showDutyForm">
+  <form class="col s12" #dutyForm="ngForm" (ngSubmit)="saveDuty(dutyForm.value)">
+    <div class="card grey lighten-5">
+      <div class="card-content black-text">
+        <span class="card-title">Add Duty</span>
+        <div class="row">
+          <div class="input-field col s6">
+            <input (ngModel)="dutyCode" name="dutyCode" placeholder="Duty Code" id="duty-code" type="text" class="validate">
+            <label for="duty-code">Duty Code</label>
+          </div>
+          <div class="input-field col s6">
+            <input (ngModel)="sectionCode" name="sectionCode" placeholder="Section Name" id="duty-section-name" type="text" class="validate">
+            <label for="duty-section-name">Section Name</label>
+          </div>
+          <div class="input-field col s12">
+            <input (ngModel)="dutyName" name="dutyName" placeholder="Duty Name" id="duty-name" type="text" class="validate">
+            <label for="duty-name">Duty Name</label>
+          </div>
+        </div>
+        <input type="hidden" (ngModel)="userProfileId" name="userProfileId"/>
+        <input type="hidden" (ngModel)="createdBy" name="createdBy" value="snadarajan"/>
+      </div>
+      <div class="card-action">
+        <button class="btn waves-effect blue waves-light" type="submit" name="action">Save</button>
+        <button class="waves-effect waves-teal btn-flat" type="cancel" name="cancel" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -15,11 +15,13 @@ import {UserDetailComponent} from "./component/user-detail.component";
 import {NavigationComponent} from "./component/navigation.component";
 import {UserFormComponent} from "./component/user-form.component";
 import {LoginComponent} from "./component/login.component";
+import {DutyListComponent} from "./component/duty-list.component";
+import {DutyFormComponent} from "./component/duty-form.component";
 
 @NgModule({
   declarations: [
     AppComponent, UserDutyListComponent, LookupNameByCodePipe, MySchedulerComponent, AdminComponent, UserListComponent, UserDetailComponent,
-    NavigationComponent, UserFormComponent, LoginComponent
+    NavigationComponent, UserFormComponent, LoginComponent, DutyListComponent, DutyFormComponent
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,14 @@ export class RestDataService {
     return this.http.get(this.ROOT + dataPath).map(response => response.json());
   }
 
-  postData(dataPath: string, data: {}): Observable<Response> {
-    return this.http.post(this.ROOT + dataPath, data, this.options);
+  postData(dataPath: string, data: {}) {
+    return this.http.post(this.ROOT + dataPath, data, this.options)
+      .map(response => {
+        return response.json();
+      });
+  }
+
+  private handleError(error: Response) {
+    Observable.throw(error.statusText);
   }
 }
