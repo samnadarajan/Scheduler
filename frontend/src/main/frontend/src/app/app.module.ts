@@ -17,6 +17,7 @@ import {UserFormComponent} from "./component/user-form.component";
 import {LoginComponent} from "./component/login.component";
 import {DutyListComponent} from "./component/duty-list.component";
 import {DutyFormComponent} from "./component/duty-form.component";
+import {MaterializeModule} from "angular2-materialize";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {DutyFormComponent} from "./component/duty-form.component";
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterializeModule
   ],
   providers: [RestDataService],
   bootstrap: [AppComponent]
