@@ -1,8 +1,9 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, EventEmitter} from "@angular/core";
 import {RestDataService} from "../service/rest-data.service";
 import {IUser} from "../class/IUser.model";
 import {UserDetailComponent} from "./user-detail.component";
 import {UserFormComponent} from "./user-form.component";
+import {MaterializeAction} from "angular2-materialize";
 
 @Component({
   selector: "user-list",
@@ -13,6 +14,8 @@ export class UserListComponent implements OnInit {
   constructor(private restDataService: RestDataService) {}
   users: IUser[];
   showUserForm: boolean = false;
+  modalActions1 = new EventEmitter<string|MaterializeAction>();
+  params = [];
 
   getAllUsers(): void {
     this.restDataService.getData("/user/list")
@@ -43,6 +46,11 @@ export class UserListComponent implements OnInit {
 
   cancelNewUser() {
     this.showUserForm = false;
+  }
+
+  openModal1() {
+    console.log("I can delete I suppose")
+    this.modalActions1.emit({action:"modal",params:['open']});
   }
 
   ngOnInit() : void {
