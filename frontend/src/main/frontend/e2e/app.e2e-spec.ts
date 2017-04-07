@@ -1,6 +1,6 @@
 import { SchedulerPage } from './app.po';
 
-describe('scheduler App', function() {
+describe('scheduler App', () => {
   let page: SchedulerPage;
 
   beforeEach(() => {
