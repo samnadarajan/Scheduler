@@ -23,6 +23,13 @@ export class RestDataService {
       });
   }
 
+  deleteData(dataPath: string) {
+    return this.http.delete(this.ROOT + dataPath)
+      .map(response => {
+        return response.json();
+      });
+  }
+
   private handleError(error: Response) {
     Observable.throw(error.statusText);
   }

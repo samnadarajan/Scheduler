@@ -1,9 +1,9 @@
-<form materialize class="col s12" #userForm="ngForm" (ngSubmit)="saveUserForm(userForm.value)" >
+<form materialize class="col s12" #userForm="ngForm" (ngSubmit)="save(userForm.value)" >
   <div class="card grey lighten-5">
     <div class="card-content black-text">
       <div class="card-title">
-        <span>{{userFormTitle}}</span>
-        <span *ngIf="userFormTitle == 'Edit'">{{user.firstName}} {{user.lastName}}</span>
+        <span>{{formTitle}}</span>
+        <span *ngIf="formTitle == 'Edit'">{{user.firstName}} {{user.lastName}}</span>
       </div>
       <div class="row">
         <div class="input-field col s6">
@@ -31,10 +31,11 @@
       </div>
       <input type="hidden" [(ngModel)]="user.userProfileId" name="userProfileId"/>
       <input type="hidden" [(ngModel)]="user.createdBy" name="createdBy" value="snadarajan"/>
+      <!--TODO change hardcoded user-->
     </div>
     <div class="card-action">
       <button class="btn waves-effect blue waves-light" type="submit" name="action">Save</button>
-      <button class="waves-effect waves-teal btn-flat" type="cancel" name="cancel" (click)="cancelUserForm()">Cancel</button>
+      <button class="waves-effect waves-teal btn-flat" type="cancel" name="cancel" (click)="cancel()">Cancel</button>
     </div>
   </div>
 </form>

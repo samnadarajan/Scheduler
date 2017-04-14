@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s11">
-    <user-form *ngIf="showUserForm" [user]="userForForm" [userFormTitle]="userFormTitle" (saveUser)="saveUser($event)" (cancelUser)="cancelUser($event)"></user-form>
+    <user-form *ngIf="showUserForm" [user]="userForForm" [formTitle]="userFormTitle" (saveUserForm)="saveUser($event)" (cancelUserForm)="cancelUser($event)"></user-form>
     <table class="highlight responsive-table">
       <thead>
       <tr>
@@ -23,7 +23,6 @@
       </tr>
       <tr [hidden]="!user.expanded" [ngClass]="{'row-expanded-bottom':user.expanded}">
         <td colspan="7">
-          <span>Notes</span>
           <p>{{user.notes}}</p>
         </td>
       </tr>
@@ -38,14 +37,14 @@
   </div>
 </div>
 
-<!-- Modal Structure -->
+<!--Delete User Modal-->
 <div id="delete-user-modal" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="deleteUserModal">
   <div class="modal-content">
-    <h4>Delete User</h4>
-    <p>Are you sure you want to delete {{users}}</p>
+    <h4>Delete {{userToDelete.firstName}} {{userToDelete.lastName}}</h4>
+    <p>Are you sure you want to delete <strong>{{userToDelete.firstName}} {{userToDelete.lastName}}</strong>?  All of this users duties will be removed as well.</p>
   </div>
   <div class="modal-footer">
     <a class="waves-effect waves-green btn-flat" (click)="closeDeleteUserModal()">No</a>
-    <a class="modal-action modal-close waves-effect red waves-red btn-flat">Yes</a>
+    <a class="modal-action modal-close waves-effect red waves-red btn-flat" (click)="deleteUser(userToDelete.userProfileId)">Yes</a>
   </div>
 </div>

@@ -37,4 +37,10 @@ public class UserController extends AbstractRestController {
         modelMap.put("user", userProfileEntity);
         return filterModelMapForResponse(modelMap);
     }
+
+    @RequestMapping(value = "delete", method = RequestMethod.DELETE)
+    public @ResponseBody Map delete(@RequestParam Long userProfileId, ModelMap modelMap) {
+        userProfileRepository.delete(userProfileId);
+        return filterModelMapForResponse(modelMap);
+    }
 }
