@@ -13,6 +13,8 @@ import {MaterializeAction} from "angular2-materialize";
 export class UserListComponent implements OnInit {
   constructor(private restDataService: RestDataService) {}
   users: IUser[];
+  userForForm: IUser;
+  userFormTitle: string;
   showUserForm: boolean = false;
   deleteUserModal = new EventEmitter<string|MaterializeAction>();
 
@@ -33,9 +35,17 @@ export class UserListComponent implements OnInit {
 
   addUser() {
     this.showUserForm = true;
+    this.userForForm = {} as IUser;
+    this.userFormTitle = "Add User";
   }
 
-  saveNewUser(user:IUser) {
+  editUser(index: number) {
+    this.showUserForm = true;
+    this.userFormTitle = "Edit User"
+    this.userForForm = this.users[index];
+  }
+
+  saveUser(user:IUser) {
     this.restDataService.postData("/user/save", user)
       .subscribe(response => {
         this.users.unshift(response.user);
@@ -44,7 +54,7 @@ export class UserListComponent implements OnInit {
       });
   }
 
-  cancelNewUser() {
+  cancelUser() {
     this.showUserForm = false;
   }
 

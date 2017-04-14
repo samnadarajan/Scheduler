@@ -9,15 +9,16 @@ import {IUser} from "../../class/IUser.model";
 export class UserFormComponent {
   constructor(private restDataService: RestDataService) {}
   @Input() user: IUser;
-  @Output() saveNewUser = new EventEmitter();
-  @Output() cancelNewUser = new EventEmitter();
+  @Input() userFormTitle: string = "Add User";
+  @Output() saveUser = new EventEmitter();
+  @Output() cancelUser = new EventEmitter();
 
-  saveUser(formValues) {
-    this.saveNewUser.emit(formValues);
+  saveUserForm(formValues) {
+    this.saveUser.emit(formValues);
   }
 
-  cancel() {
-    this.cancelNewUser.emit();
+  cancelUserForm() {
+    this.cancelUser.emit();
   }
 
   ngOnInit() {

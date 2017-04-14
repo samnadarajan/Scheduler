@@ -1,7 +1,7 @@
-<form materialize class="col s12" #userForm="ngForm" (ngSubmit)="saveUser(userForm.value)" >
+<form materialize class="col s12" #userForm="ngForm" (ngSubmit)="saveUserForm(userForm.value)" >
   <div class="card grey lighten-5">
     <div class="card-content black-text">
-      <span class="card-title">Add User</span>
+      <span class="card-title">{{userFormTitle}}</span>
       <div class="row">
         <div class="input-field col s6">
           <input [(ngModel)]="user.firstName" name="firstName" placeholder="First Name" id="first_name" type="text" class="validate">
@@ -14,24 +14,24 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input (ngModel)="user.email" name="email" placeholder="Email" id="email" type="text" class="validate">
+          <input [(ngModel)]="user.email" name="email" placeholder="Email" id="email" type="text" class="validate">
           <label for="email">Email</label>
         </div>
         <div class="input-field col s6">
-          <input (ngModel)="user.phone" name="phone" placeholder="Phone" id="phone" type="text" class="validate">
+          <input [(ngModel)]="user.phone" name="phone" placeholder="Phone" id="phone" type="text" class="validate">
           <label for="phone">Phone</label>
         </div>
         <div class="input-field col s12">
-          <textarea (ngModel)="user.notes" name="notes" placeholder="Notes" id="note-text-area" class="materialize-textarea"></textarea>
+          <textarea [(ngModel)]="user.notes" name="notes" placeholder="Notes" id="note-text-area" class="materialize-textarea"></textarea>
           <label for="note-text-area">Notes</label>
         </div>
       </div>
-      <input type="hidden" (ngModel)="user.userProfileId" name="userProfileId"/>
-      <input type="hidden" (ngModel)="user.createdBy" name="createdBy" value="snadarajan"/>
+      <input type="hidden" [(ngModel)]="user.userProfileId" name="userProfileId"/>
+      <input type="hidden" [(ngModel)]="user.createdBy" name="createdBy" value="snadarajan"/>
     </div>
     <div class="card-action">
       <button class="btn waves-effect blue waves-light" type="submit" name="action">Save</button>
-      <button class="waves-effect waves-teal btn-flat" type="cancel" name="cancel" (click)="cancel()">Cancel</button>
+      <button class="waves-effect waves-teal btn-flat" type="cancel" name="cancel" (click)="cancelUserForm()">Cancel</button>
     </div>
   </div>
 </form>
