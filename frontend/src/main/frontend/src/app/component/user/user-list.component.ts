@@ -41,8 +41,8 @@ export class UserListComponent implements OnInit {
 
   editUser(index: number) {
     this.showUserForm = true;
-    this.userFormTitle = "Edit User"
     this.userForForm = this.users[index];
+    this.userFormTitle = "Edit"
   }
 
   saveUser(user:IUser) {

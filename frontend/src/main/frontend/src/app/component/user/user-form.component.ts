@@ -4,12 +4,18 @@ import {IUser} from "../../class/IUser.model";
 
 @Component({
   selector: "user-form",
-  templateUrl: "./user-form.component.html"
+  templateUrl: "./user-form.component.html",
+  styles: [`
+    .secondary-title {
+      color: #9e9e9e
+    }
+    `
+  ]
 })
 export class UserFormComponent {
   constructor(private restDataService: RestDataService) {}
   @Input() user: IUser;
-  @Input() userFormTitle: string = "Add User";
+  @Input() userFormTitle;
   @Output() saveUser = new EventEmitter();
   @Output() cancelUser = new EventEmitter();
 
