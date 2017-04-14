@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {UserListComponent} from "./user-list.component";
+import {UserListComponent} from "./user/user-list.component";
 import {DutyListComponent} from "./duty-list.component";
 
 @Component({

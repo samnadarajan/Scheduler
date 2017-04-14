@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {UserDutyListComponent} from "app/component/user-duty-list.component";
+import {UserDutyListComponent} from "app/component/user/user-duty-list.component";
 
 @Component({
   selector: "user",
