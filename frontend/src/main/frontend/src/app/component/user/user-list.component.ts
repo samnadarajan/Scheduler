@@ -55,7 +55,7 @@ export class UserListComponent implements OnInit {
   saveUser(user:IUser) {
     this.restDataService.postData("/user/save", user)
       .subscribe(response => {
-        this.users.unshift(response.user);
+        this.users = response.users;
         this.showUserForm = false;
 
       });
@@ -68,7 +68,7 @@ export class UserListComponent implements OnInit {
   deleteUser(userProfileId: number) {
     this.restDataService.deleteData("/user/delete?userProfileId=" + userProfileId)
       .subscribe(response => {
-        this.users
+        this.users = response.users;
       });
   }
 

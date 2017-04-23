@@ -34,13 +34,14 @@ public class UserController extends AbstractRestController {
     public @ResponseBody Map save(@RequestBody Map<String, Object> user, ModelMap modelMap) {
         UserProfileEntity userProfileEntity = (UserProfileEntity) super.validateAndInsert(modelMap, user);
         userProfileRepository.save(userProfileEntity);
-        modelMap.put("user", userProfileEntity);
+        modelMap.put("users", userProfileRepository.findAll());
         return filterModelMapForResponse(modelMap);
     }
 
     @RequestMapping(value = "delete", method = RequestMethod.DELETE)
     public @ResponseBody Map delete(@RequestParam Long userProfileId, ModelMap modelMap) {
         userProfileRepository.delete(userProfileId);
+        modelMap.put("users", userProfileRepository.findAll());
         return filterModelMapForResponse(modelMap);
     }
 }
